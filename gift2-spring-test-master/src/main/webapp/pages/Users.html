@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Registration Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css"
+	media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+	
+</script>
+
+<script type="text/javascript">
+	ddsmoothmenu.init({
+		mainmenuid : "top_nav", //menu DIV id
+		orientation : 'h', //Horizontal or vertical menu: Set to "h" or "v"
+		classname : 'ddsmoothmenu', //class added to menu's outer DIV
+		//customtheme: ["#1c5a80", "#18374a"],
+		contentsource : "markup" //"markup" or ["container_id", "path_to_menu_file"]
+	})
+</script>
+</head>
+<body>
+	<div align=center>
+		<div id="templatemo_header">
+
+			<div class="cleaner"></div>
+		</div>
+		<div id="templatemo_menubar">
+			<div id="top_nav" class="ddsmoothmenu">
+				<ul>
+					<li><a href="index.html" class="selected">Home</a></li>
+					<li><a href="products.html">Products</a>
+						<ul>
+							<li><a href="#submenu1">Sport</a></li>
+							<li><a href="#submenu2">Fashion</a></li>
+
+						</ul></li>
+					
+
+				</ul>
+				<br style="clear: left" />
+			</div>
+			<!-- end of ddsmoothmenu -->
+			<div id="templatemo_search">
+				<form action="#" method="get">
+					<input type="text" value=" " name="keyword" id="keyword"
+						title="keyword" onfocus="clearText(this)" onblur="clearText(this)"
+						class="txt_field" /> <input type="submit" name="Search" value=" "
+						alt="Search" id="searchbutton" title="Search" class="sub_btn" />
+				</form>
+			</div>
+		</div>
+		<!-- END of templatemo_menubar -->
+
+
+		<h1>Registration Form</h1>
+		<form name="Registration" action="/create" th:action="@{/create}"
+			th:object="${Users}" method="get">
+
+			<p>
+				Username: <input name="username" type="text" th:field="*{username}" />
+			</p>
+			<p>
+				Password: <input name="password" type="password"
+					th:field="*{password}" />
+			</p>
+			<p>
+				Full Name: <input name="fullname" type="text" th:field="*{fullname}" />
+			</p>
+			<p>
+				Address: <input name="address" type="text" th:field="*{address}" />
+			</p>
+			<p>
+				Email : <input name="email" type="email" th:field="*{email}" />
+			</p>
+
+			<p>
+				<input type="submit" value="Register" /> <input type="reset"
+					value="Reset" />
+			</p>
+		</form>
+
+	</div>
+</body>
+</html>
